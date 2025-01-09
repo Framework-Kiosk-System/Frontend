@@ -1,0 +1,24 @@
+
+<div class="custom-form">
+  <% if (title) { %>
+    <h2 class="form-title"><%= title %></h2>
+  <% } %>
+  
+  <form action="<%= action %>" method="<%= method %>">
+    <% fields.forEach(field => { %>
+      <div class="form-group">
+        <label for="<%= field.id %>"><%= field.label %></label>
+        <input 
+          type="<%= field.type %>" 
+          id="<%= field.id %>" 
+          name="<%= field.name %>" 
+          placeholder="<%= field.placeholder %>" 
+          class="form-input" 
+          <% if (field.required) { %>required<% } %>
+        />
+      </div>
+    <% }) %>
+    
+    <button type="submit" class="form-button"><%= buttonText %></button>
+  </form>
+</div>
