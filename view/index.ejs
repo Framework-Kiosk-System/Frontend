@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reusable EJS Form</title>
+  <link rel="stylesheet" href="/css/form.css"> <!-- Global styles -->
+</head>
+<body>
+  <%- include('components/form', {
+    title: 'Sign Up',
+    action: '/submit',
+    method: 'POST',
+    buttonText: 'Register',
+    fields: [
+      { id: 'username', label: 'Username', type: 'text', name: 'username', placeholder: 'Enter your username', required: true },
+      { id: 'email', label: 'Email', type: 'email', name: 'email', placeholder: 'Enter your email', required: true },
+      { id: 'foo', label: 'Password', type: 'password', name: 'password', placeholder: 'Enter your password', required: true },
+      { id: 'password', label: 'Password', type: 'password', name: 'password', placeholder: 'Enter your password', required: true },
+      { id: 'IBAN', label: 'IBAN', type: 'text', name: 'IBAN', placeholder: 'Enter your IBAN', required: true }
+    ]
+  }) %>
+</body>
+</html>

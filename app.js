@@ -1,19 +1,24 @@
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Define dirname for ES modules
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
 const app = express();
-const port = 3000;
 
+// Set up view engine and static files
+app.set('view engine', 'ejs');
 
-app.use(express.json());
+app.set('views', './view');
+app.set('view engine', 'ejs');
 
+// Route to render the form
 app.get('/', (req, res) => {
-    res.send('Hello, World!');
+  res.render('index');
 });
 
-app.get('/api/data', (req, res) => {
-    res.json({ message: 'This is a sample API endpoint.' });
-});
-
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
+// Start the server
+const PORT = 3000;
+app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
